@@ -38,7 +38,7 @@ We need to find the 3D coordinate: $P[x y z]$ by knowing the $\theta_{i}$'s of t
 The 3D positional coordinates of B:
 
 $$
-B_i=\begin{bmatrix}R+L_1cos\theta_{i}\\0\\L_1sin\theta_{i}\end{bmatrix}----(1)
+B_i=\begin{bmatrix}R+L_1cos\theta_{i} \\ 0 \\ L_1sin \ theta_{i} \end{bmatrix}----(1)
 $$
 
 the rotation matrix (transformation matrix)-- **about Z**
@@ -104,6 +104,49 @@ x=f_1+f_xz \\
 y=f2+f_yz----(6)
 \end{gather*}
 $$
+
+### Inverse Kinematics analysis:
+For a given delta robot, the vector loop closure equations are:
+
+$$
+{B^B_i}+L^B_i+I^B_i=P^B_P+[R^B_P]P^P_i=P^B_P+P^B_i
+$$
+
+where:
+
+$$
+\begin{gather*}
+R=I_3 \\
+B_i={\text{the revolute joints of the fixed base}} \\
+P_i={\text{connection joints (vertices of the equilateral triangle of the base and end-effector)}}
+\end{gather*}
+
+$$
+
+The basic IPK solution for the 3 legs are modelled as:
+
+$$
+E_{i}{cos\theta_i}+F_{i}sin\theta_{i}+G_i=0
+$$
+
+where:
+
+$$
+\begin{gather*}
+E_1=2L(y+a) \\
+F_1=2zL \\
+G_1=x^2+y^2+z^2+a^2+L^2+2ya-l^2 \\
+E_2=-L(\sqrt3(x+b)+y+c) \\
+F_2=2zL \\
+G_2=x^2+y^2+z^2+b^2+c^2+L^2+2(xb+yc)-l^2 \\
+E_3=L(\sqrt3(x+b)-y-c) \\
+F_3=2zL \\
+G_3=x^2+y^2+z^2+b^2+c^2+L^2+2(-xb+yc)-l^2 \\
+\end{gather*}
+$$
+
+then we put these individually in the equation and then finally solve using *tangent half angle substitution.*
+
 
 ## Papers Read:
 
