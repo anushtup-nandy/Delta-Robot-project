@@ -114,18 +114,13 @@ $$
 
 where:
 
-$$
-\begin{gather*}
-R = I_3 \\ B_i = { \text{the revolute joints of the fixed base} } \\ P_i={ \text{connection joints (vertices of the equilateral triangle of the base and end-effector)} }
-\end{gather*}
-
-$$
+$ R = I_3 $ 
+$ B_i = { \text{the revolute joints of the fixed base} } $ 
+$ P_i={ \text{connection joints (vertices of the equilateral triangle of the base and end-effector)}} $
 
 The basic IPK solution for the 3 legs are modelled as:
 
-$$
-E_{i}{cos\theta_i}+F_{i}sin\theta_{i}+G_i=0
-$$
+$ E_{i}{ cos \theta_i }+ F_{i} sin \theta_{i} + G_i=0 $
 
 where:
 
