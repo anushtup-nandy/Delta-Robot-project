@@ -1,8 +1,101 @@
 # Delta-Robot-project
+
+This project is being done by me *individually* under the Guidance of Dr. Arshad Javed from the department of Mechanical Engineering in BITS-Pilani, Hyderabad Campus.
+
+Materials I've used:
+- Neema 17 stepper motors (3)
+- 3D printed Lower arms (3)
+- Carbon fibre upper arms (6)
+- 3D printed end-effector
+- L298N motor driver shields (3)
+- Ball joints (12)
+- Arduino Uno
+- Jumper wires
+- Bread-board
+
 ![Delta](https://github.com/anushtup-nandy/Delta-Robot-project/blob/master/Delta_img.jpg)
 
+
 ## Theory:
-All the math and the theory of the delta robot!
+
+Delta robot is a type of parallel robot. Parallel robots have certain advantages over serial ones (like a robotic arm):
+1. higher stiffness
+2. strong bearing capacities
+3. high precesion
+4. fast pick-ups
+
+Delta robots are usually ==3-DOF parallel robots==. They have the following parts:
+1. 3 equal arms
+2. 1 base (fixed)
+3. 1 end-effector (moving)
+The arms are usually attatched at 120 degrees of each other. The end-effector is attatched to the arms witha revolute joint. Due to it's parallelogram like nature, the delta robot is unable to rotate, only translate.
+
+Delta robots are used for:
+1. pick-and-place operations.
+
+### FORWARD KINEMATICS:
+We need to find the 3D coordinate: $P[x y z]$ by knowing the $\theta_{i}$'s of the arms (*typical FK*)
+The 3D positional coordinates of B:
+
+$$
+B_i=\begin{bmatrix}R+L_1cos\theta_{i}\\0\\L_1sin\theta_{i}\end{bmatrix}----(1)
+$$
+
+the rotation matrix (transformation matrix)-- **about Z**
+
+$$
+R=\begin{bmatrix}cos\alpha & -sin\alpha & 0\\ sin\alpha & cos\alpha & 0\\ 0&0&1\end{bmatrix}
+$$
+
+The installation angles of the 3 arms are:
+
+$$
+\alpha_{1}=0, \alpha_{2}=\frac{2\pi}{3}, \alpha_{2}=\frac{4\pi}{3} 
+$$
+
+using pythagoras theorem we can write the following:
+
+$$
+\begin{gather*}
+(x-cos\alpha_1[(R-r)+L_{1}cos\theta_1])^2+(y-sin\alpha_1[(R-r)+L_{1}sin\theta_1])^2+(z-L_1sin\theta_1)^2=L_2^2----(2.1)\\
+and\\
+(x-cos\alpha_2[(R-r)+L_{1}cos\theta_2])^2+(y-sin\alpha_2[(R-r)+L_{1}sin\theta_2])^2+(z-L_1sin\theta_2)^2=L_2^2----(2.2)\\
+and\\
+(x-cos\alpha_3[(R-r)+L_{1}cos\theta_3])^2+(y-sin\alpha_3[(R-r)+L_{1}sin\theta_3])^2+(z-L_1sin\theta_3)^2=L_2^2----(2.3)\\
+\end{gather*}
+$$
+
+in a simpler manner we can write something of the sorts of:
+
+$$
+(x-k_{ii})+(y-k_{ij})+(z-k_{ik})=L_2^2----(3)
+$$
+
+where $k$ will be a matrix containing the simplified terms of the equations (2.1-2.3)
+
+$$
+k=\begin{bmatrix}
+(R-r)+L_1cos\theta_{1}&0&-L_1sin\theta_1\\
+0.5[(R-r)+L_1cos\theta_{2}]&{\frac{-\sqrt{3}}{2}[(R-r)+L_1cos\theta_{2}]}&-L_1sin\theta_2\\
+0.5[(R-r)+L_1cos\theta_{3}]&{\frac{\sqrt{3}}{2}[(R-r)+L_1cos\theta_{3}]}&-L_1sin\theta_3
+\end{bmatrix}
+$$
+
+Eqn (1) is substracted from eqns (2) and (3) (==why??==) and then merged and [[MATRIX DECOMPOSITION]].
+
+$$
+\begin{gather*}
+a_1x+b_1y+c_1z=d_1\\
+a_2x+b_2y+c_2z=d_2----(4)
+\end{gather*}
+$$
+
+This in turn can also be written as:
+
+$$
+\begin{bmatrix}a_{1}&b_{1}\\a_{2}&b_2\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}d_1-c_1z\\d_2-c_2z\end{bmatrix}----(5)
+$$
+
 
 ## Papers Read:
 
