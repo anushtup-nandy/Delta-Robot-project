@@ -116,9 +116,7 @@ where:
 
 $$
 \begin{gather*}
-R=I_3 \\
-B_i={\text{the revolute joints of the fixed base}} \\
-P_i={\text{connection joints (vertices of the equilateral triangle of the base and end-effector)}}
+R = I_3 \\ B_i = { \text{the revolute joints of the fixed base} } \\ P_i={ \text{connection joints (vertices of the equilateral triangle of the base and end-effector)} }
 \end{gather*}
 
 $$
