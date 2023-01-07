@@ -1,5 +1,5 @@
 # Delta-Robot-project
-All theory, code and papers 
+![Delta](https://github.com/anushtup-nandy/Delta-Robot-project/blob/master/Delta_img.jpg)
 
 ## Theory:
 All the math and the theory of the delta robot!
