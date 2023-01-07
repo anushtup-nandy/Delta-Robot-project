@@ -93,7 +93,7 @@ $$
 This in turn can also be written as:
 
 $$
-\begin{bmatrix}a_{1}&b_{1}\\a_{2}&b_2\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}d_1-c_1z\\d_2-c_2z\end{bmatrix}----(5)
+\begin{bmatrix} a_{1}&b_{1} \\ a_{2}&b_2 \end{bmatrix} \begin{bmatrix} x\\ y \end{bmatrix} = \begin{bmatrix}d_1-c_1z \\ d_2-c_2z \end{bmatrix}----(5)
 $$
 
 Solve this linear equation for x and y. 
